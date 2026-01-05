@@ -21,7 +21,10 @@ RUN mvn clean package -pl fo-api -am -DskipTests
 # Run stage
 FROM eclipse-temurin:17-jre-alpine
 WORKDIR /app
-COPY --from=build /app/fo-api/target/*.jar app.jar
+# Copy the built artifact. Adjust the wildcard to pick the executable jar if needed
+# Typically spring-boot-maven-plugin creates two jars: one executable and one "original".
+# We grab the one that is NOT starting with "original".
+COPY --from=build /app/fo-api/target/fo-api-*.jar app.jar
 
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
