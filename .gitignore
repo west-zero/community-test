@@ -1,0 +1,28 @@
+# IDE & System
+.idea/
+.vscode/
+.DS_Store
+*.swp
+*.swo
+
+# Maven / Java
+target/
+*.class
+*.jar
+*.war
+*.ear
+*.log
+
+# Node / Nuxt
+node_modules/
+dist/
+.output/
+.nuxt/
+.env
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS
+Thumbs.db
